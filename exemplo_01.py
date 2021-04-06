@@ -54,7 +54,8 @@ print(data[data['bathrooms'] == 2].price.mean())
 print(data[data['bedrooms'] == 3].price.min())
 
 # 11. Quantas casas possuem mais de 300 metros quadrados na sala de estar?
-print(data[data['sqft_living'] > 300].sqft_living.count())
+data['m2_living'] = data['sqft_living'] * 0.092
+print(data[data['m2_living'] > 300].shape)
 
 # 12. Quantas casas tem mais de 2 andares?
 print(data[data['floors'] > 2].floors.count())
@@ -66,4 +67,4 @@ print(data[data['waterfront'] == 1].waterfront.count())
 print(data[(data['waterfront'] == 1) & (data['bedrooms'] == 3)].bedrooms.count())
 
 # 15. Das casas com mais de 300 metros quadrados de sala de estar, quantas tem mais de 2 banheiros?
-print(data[(data['sqft_living'] > 300) & (data['bathrooms'] > 2)].bathrooms.count())
+print(data[(data['m2_living'] > 300) & (data['bathrooms'] > 2)].shape)
